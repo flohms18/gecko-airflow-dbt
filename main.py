@@ -1,11 +1,13 @@
 from dotenv import load_dotenv
+import requests
 import os
 
 load_dotenv()
-api_key = os.getenv("API_KEY")
 
 
 def hello():
-    print("My python script works!")
+    url = os.getenv("BASE_URL")
+    response = requests.get(url)
+    print(response.json())
 
 hello()
